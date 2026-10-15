@@ -1,0 +1,13 @@
+# 내 컴퓨터 전용 로컬 서버 실행 파일
+start-server.vbs
+
+# 사용하지 않는 예전 이미지
+assets/instructor-stock.jpg
+assets/logo-wordmark.png
+
+# 임시 · 시스템 파일
+_*.html
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
