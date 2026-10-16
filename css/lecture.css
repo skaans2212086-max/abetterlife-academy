@@ -714,3 +714,163 @@ body.lecture { letter-spacing: -0.012em; }
 .d-proof .case.case-more { margin-top: 26px; }
 .d-proof .case-more .more-ttl { font-size: 30px; font-weight: 700; }
 @media (max-width: 640px) { .d-proof .case-more .more-ttl { font-size: 22px; } }
+/* 커리큘럼 02: 네이버 AI 추천 검색 화면 + 색연필 동그라미 */
+.stack.stack-ai { height: auto; }
+.stack-ai .ai-frame { margin: 14px auto 0; max-width: 470px; height: 340px; overflow: hidden; border: 1px solid #e3e7ef; border-radius: 14px; background: #fff; box-shadow: 0 6px 18px rgba(20,40,90,.08); position: relative; }
+.stack-ai .ai-frame::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 60px; background: linear-gradient(180deg, rgba(255,255,255,0), #fff); pointer-events: none; }
+.stack-ai .ai-shot { position: relative; }
+.stack-ai .ai-shot img { display: block; width: 100%; height: auto; }
+.pencil-area { position: absolute; left: 3.5%; top: 22.6%; width: 93%; height: 15.4%; pointer-events: none; }
+.pencil-area .pencil-svg { left: -3%; top: -12%; width: 106%; height: 124%; }
+.pencil-area .pencil-svg path { stroke-width: 2.4; }
+@media (max-width: 640px) { .stack-ai .ai-frame { height: 260px; } }
+
+/* 커리큘럼 02: 검색 화면 2장 겹치기 (뒤 인계동 · 앞 강남필러) */
+.stack-ai .ai-frame.duo { height: 380px; max-width: 540px; overflow: visible; border: 0; box-shadow: none; background: transparent; }
+.stack-ai .ai-frame.duo::after { display: none; }
+.ai-frame.duo .ai-shot { position: absolute; width: 60%; height: 350px; overflow: hidden; background: #fff; border: 1px solid #e3e7ef; border-radius: 14px; box-shadow: 0 8px 22px rgba(20,40,90,.12); }
+.ai-frame.duo .ai-shot::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 56px; background: linear-gradient(180deg, rgba(255,255,255,0), #fff); }
+.ai-frame.duo .ai-shot.back { left: 0; top: 26px; transform: rotate(-2deg); filter: brightness(.97); }
+.ai-frame.duo .ai-shot.front { right: 0; top: 0; z-index: 2; box-shadow: 0 16px 36px rgba(20,40,90,.22); overflow: visible; }
+.ai-frame.duo .ai-shot.front img { border-radius: 14px; height: 350px; object-fit: cover; object-position: top; }
+.ai-frame.duo .ai-shot.front::after { border-radius: 0 0 14px 14px; }
+.ai-frame.duo .ai-shot.front .pencil-area { left: 3.5%; top: 28.5%; width: 93%; height: 17%; z-index: 3; }
+@media (max-width: 640px) {
+  .stack-ai .ai-frame.duo { height: 300px; }
+  .ai-frame.duo .ai-shot { width: 66%; height: 270px; }
+  .ai-frame.duo .ai-shot.front img { height: 270px; }
+}
+
+/* 커리큘럼 카드 안 글씨 확대 */
+.stack { height: auto; min-height: 260px; }
+.stack .cd { padding: 24px 26px 28px; }
+.stack .cd .h { font-size: 17px; padding-left: 10px; }
+.stack .cd .in { margin: 20px 10px 0; padding: 22px 24px; font-size: 17px; }
+.stack .cd .src { font-size: 14px; gap: 8px; } .stack .cd .src i { width: 22px; height: 15px; }
+.stack .cd .tt { margin: 10px 0 14px; font-size: 21px; }
+.stack .cd .ln { height: 9px; margin: 10px 0; }
+.stack .cd .del.pencil { font-size: 16px; padding: 4px 14px; margin: 8px 0; }
+.stack .cd .del + em { font-size: 14px; padding: 2px 8px; margin-left: 8px; }
+.stack .cd .fix { font-size: 16px; } .stack .cd .fix em { font-size: 13px; padding: 2px 9px; }
+.chs div { font-size: 15px; padding: 20px 6px; } .chs svg { width: 38px; height: 38px; }
+@media (max-width: 640px) {
+  .stack .cd { padding: 16px 14px 18px; }
+  .stack .cd .h { font-size: 13px; }
+  .stack .cd .in { margin: 12px 0 0; padding: 14px; font-size: 14px; }
+  .stack .cd .src { font-size: 11px; } .stack .cd .tt { font-size: 16px; }
+  .stack .cd .del.pencil { font-size: 13px; padding: 3px 8px; } .stack .cd .del + em { font-size: 11px; }
+  .stack .cd .fix { font-size: 13px; } .stack .cd .fix em { font-size: 11px; }
+  .chs div { font-size: 13px; }
+}
+
+/* 결과 카드: 카톡 캡처 이미지 */
+.rc .im.photo { padding: 0; background: #BECDDE center / contain no-repeat; }
+
+/* 결과 카드: 어베러라이프 브랜드 파란 톤 */
+.rc.brand .im { background: linear-gradient(160deg, #3162ac 0%, #3b82f6 100%); display: flex; align-items: center; padding: 14px; }
+.rc.brand .im span { outline: 0; border: 2px solid #fff; background: #fff; color: #1b2a4a; font-size: 12px; font-weight: 600; line-height: 1.5; padding: 9px 11px; border-radius: 8px; box-shadow: 0 6px 14px rgba(10,30,80,.25); }
+.rc.brand .tg { background: #3162ac; color: #fff; }
+.rc.brand .rs { color: #3162ac; }
+.rc.brand .im.photo.rev { padding: 0; display: block; background: #fff center bottom / 100% auto no-repeat; }
+
+/* "딱 하루만 공개" 슬라이드 덱: 앞 슬라이드 + 뒤 슬라이드 2장 */
+.deck { position: relative; height: 380px; margin: 48px -20px 0; perspective: 1400px; }
+.deck-beam { position: absolute; inset: -40px -60px; pointer-events: none;
+  background:
+    linear-gradient(162deg, transparent 38%, rgba(80,140,255,.0) 40%, rgba(90,150,255,.35) 46%, rgba(90,150,255,0) 52%, transparent 54%),
+    linear-gradient(170deg, transparent 52%, rgba(120,170,255,.22) 58%, transparent 64%),
+    radial-gradient(ellipse 60% 45% at 50% 60%, rgba(40,90,220,.35), transparent 70%);
+  filter: blur(2px); }
+.sl { position: absolute; border-radius: 12px; overflow: hidden; text-align: left; }
+.sl-l, .sl-r { top: 46px; width: 48%; height: 270px; background: linear-gradient(180deg, #f3f5fa, #dfe5f0); color: #2a3550; padding: 22px 24px; box-shadow: 0 18px 40px rgba(0,0,0,.35); filter: saturate(.9); }
+.sl-l { left: 0; transform: rotateY(14deg) translateZ(-60px); transform-origin: left center; opacity: .82; }
+.sl-r { right: 0; transform: rotateY(-14deg) translateZ(-60px); transform-origin: right center; opacity: .82; }
+.sl-t { margin: 0; font-size: 15px; font-weight: 800; letter-spacing: -0.02em; }
+.sl-l ul { list-style: none; margin: 18px 0 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.sl-l li { display: flex; align-items: center; gap: 12px; background: #e8edf6; border-radius: 8px; padding: 12px 14px; }
+.sl-l li b { font-family: "Montserrat", sans-serif; font-size: 13px; color: #3162ac; }
+.sl-l li i { flex: 1; height: 8px; border-radius: 4px; background: #cfd7e6; }
+.sl-r-body { position: relative; margin-top: 18px; display: flex; flex-direction: column; gap: 9px; }
+.sl-r-body i { display: block; height: 8px; border-radius: 4px; background: #cfd7e6; width: 55%; }
+.sl-r-body i:nth-child(2) { width: 42%; } .sl-r-body i:nth-child(3) { width: 50%; }
+.sl-r-body span { position: absolute; right: 0; top: -4px; width: 38%; height: 120px; border-radius: 8px; background: linear-gradient(160deg, #2f6fe0, #1b4fb8); }
+.sl-f { position: absolute; left: 24px; right: 24px; bottom: 16px; margin: 0; display: flex; justify-content: space-between; font-size: 10px; color: #8a94aa; letter-spacing: 0; }
+.sl-main { left: 50%; top: 0; z-index: 2; width: 72%; height: 340px; transform: translateX(-50%); padding: 30px 36px;
+  background:
+    radial-gradient(ellipse 70% 60% at 85% 30%, rgba(120,180,255,.35), transparent 60%),
+    linear-gradient(150deg, #1b3f9e 0%, #2457c4 45%, #2a7ad6 100%);
+  color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+  box-shadow: 0 30px 60px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.08) inset; }
+.sl-main::after { content: ""; position: absolute; inset: 0; background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.10) 48%, transparent 60%); animation: sheen 7s ease-in-out infinite; pointer-events: none; }
+.sl-eb { margin: 0; font-size: 13px; color: rgba(255,255,255,.72); letter-spacing: 0; }
+.sl-h { margin: 18px 0 0; font-size: 34px; font-weight: 800; line-height: 1.5; letter-spacing: -0.03em; }
+.sl-main .sl-f { color: rgba(255,255,255,.55); font-size: 11px; left: 36px; right: 36px; bottom: 18px; }
+@media (max-width: 640px) {
+  .deck { height: 250px; margin: 32px -10px 0; }
+  .sl-l, .sl-r { top: 30px; height: 180px; padding: 14px; }
+  .sl-t { font-size: 11px; } .sl-l li { padding: 8px 10px; } .sl-l ul { gap: 6px; margin-top: 10px; }
+  .sl-main { width: 80%; height: 220px; padding: 18px 16px; }
+  .sl-eb { font-size: 10px; } .sl-h { font-size: 19px; margin-top: 10px; }
+  .sl-f, .sl-main .sl-f { font-size: 8px; left: 14px; right: 14px; bottom: 10px; }
+}
+
+/* 강사 소개 배경: 카톡 · 블로그 캡처를 쫙 깔아놓은 콜라주 + 남색 오버레이 */
+.d-who { background: linear-gradient(180deg, rgba(22,38,84,.86) 0%, rgba(14,28,64,.9) 60%, rgba(11,22,48,.97) 100%), url(../assets/who-collage.jpg?v=20261016110445) center top / cover !important; }
+/* 이현수 PD 사진: 머리 잘리지 않게 위쪽 기준 */
+.d-who .pf { height: 420px; background-position: center 6% !important; }
+@media (max-width: 640px) { .d-who .pf { height: 320px; background-position: center 4% !important; } }
+
+/* 이현수 PD 사진이 아래 "병원 마케팅 총괄" 섹션까지 몸이 이어지도록
+   두 칸 모두 같은 크기(가로 100%)로 깔고, 아래 칸은 사진 높이만큼 위로 당겨서 이어 붙임 */
+.d-who .pf { height: 420px; background: url(../assets/instructor.jpg?v=20261016043628) center top / 100% auto no-repeat !important; }
+.d-who2 { padding-top: 70px !important;
+  background:
+    linear-gradient(180deg, rgba(11,22,48,.30) 0px, rgba(11,22,48,.62) 180px, rgba(11,22,48,.86) 380px, #0b1630 560px),
+    url(../assets/instructor.jpg?v=20261016043628) center -420px / 100% auto no-repeat,
+    #0b1630 !important; }
+.d-who2 .casebox { background: rgba(19,35,74,.78); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+@media (max-width: 640px) {
+  .d-who .pf { height: 320px; }
+  .d-who2 { padding-top: 50px !important;
+    background:
+      linear-gradient(180deg, rgba(11,22,48,.30) 0px, rgba(11,22,48,.65) 120px, #0b1630 300px),
+      url(../assets/instructor.jpg?v=20261016043628) center -320px / 100% auto no-repeat,
+      #0b1630 !important; }
+}
+.d-who .pf::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 140px; background: linear-gradient(180deg, rgba(11,22,48,0), rgba(11,22,48,.30)); pointer-events: none; }
+.d-who .pf .card { z-index: 1; }
+
+/* 커리큘럼 AI 브리핑 예시 카드: 글씨 확대 */
+.sc.web { gap: 14px; padding: 16px; }
+.sc.web div { padding: 12px 14px; font-size: 14px; line-height: 1.5; color: #444; }
+.sc.web div b { font-size: 15px; margin-bottom: 8px; }
+.sc.web div i { height: 64px; margin-bottom: 8px; }
+.icard .sc.web { height: auto; }
+@media (max-width: 640px) { .sc.web div { font-size: 12px; padding: 10px; } .sc.web div b { font-size: 13px; } .sc.web div i { height: 50px; } }
+
+/* 대시보드 막대: 0부터 차오르는 애니메이션 */
+.dash.grow .rw i { width: 0; transition: width 1.2s cubic-bezier(.2,.8,.2,1); }
+.dash.grow.on .rw i { width: var(--w); }
+.dash.grow.on .rw:nth-of-type(3) i { transition-delay: .15s; }
+.dash.grow.on .rw:nth-of-type(4) i { transition-delay: .3s; }
+.dash.grow.on .rw:nth-of-type(5) i { transition-delay: .45s; }
+@media (prefers-reduced-motion: reduce) { .dash.grow .rw i { width: var(--w); transition: none; } }
+
+/* 선착순 남은 자리 + 진행 막대 */
+.seats { margin-top: 12px; padding: 12px 14px; border: 1px solid #f3c6cb; background: #fff6f7; border-radius: 8px; }
+.seats-top { display: flex; justify-content: space-between; align-items: center; }
+.badge-fcfs { background: var(--lc-red); color: #fff; font-size: 12px; font-weight: 800; padding: 3px 9px; border-radius: 20px; }
+.seats .left { font-size: 14px; font-weight: 700; color: #333; }
+.seats .left b { color: var(--lc-red); font-size: 18px; font-weight: 900; font-variant-numeric: tabular-nums; }
+.seats-bar { margin-top: 10px; height: 10px; border-radius: 6px; background: #f1d9dc; overflow: hidden; }
+.seats-bar i { display: block; height: 100%; width: 0; border-radius: 6px; background: linear-gradient(90deg, #ff7a85, var(--lc-red)); transition: width 1.4s cubic-bezier(.2,.8,.2,1); position: relative; overflow: hidden; }
+.seats-bar i::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,.5), transparent); transform: translateX(-100%); animation: seatShine 2.2s 1.6s infinite; }
+@keyframes seatShine { to { transform: translateX(100%); } }
+.seats-note { margin: 8px 0 0; font-size: 12px; color: #8a6a6e; }
+.mbar .m-left { font-style: normal; color: var(--lc-red); font-weight: 700; }
+@media (prefers-reduced-motion: reduce) { .seats-bar i { transition: none; } .seats-bar i::after { animation: none; } }
+
+/* 슬라이드 덱 메인 글씨 살짝 위로 */
+.sl-main { justify-content: center; padding-bottom: 70px; }
+.sl-main .sl-h { margin-top: 14px; }
+@media (max-width: 640px) { .sl-main { padding-bottom: 44px; } }

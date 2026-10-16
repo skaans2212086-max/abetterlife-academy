@@ -5,7 +5,7 @@
       if (en.isIntersecting) { en.target.classList.add('on'); io.unobserve(en.target); }
     });
   }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal, #bars, .pencil').forEach(function (el) { io.observe(el); });
+  document.querySelectorAll('.reveal, #bars, .pencil, .dash.grow').forEach(function (el) { io.observe(el); });
 
   // ---------- 숫자 카운트 ----------
   var cio = new IntersectionObserver(function (entries) {
@@ -84,4 +84,16 @@
       setTimeout(function () { btn.style.background = ''; }, 1200);
     }).catch(function () {});
   });
+})();
+
+// 선착순 남은 자리 · 진행 막대 (버튼의 신청 수 하나만 바꾸면 전부 따라 바뀜)
+(function () {
+  var c = document.getElementById('applyCount'); if (!c) return;
+  var box = document.querySelector('.seats'), total = box ? +box.dataset.total : 100;
+  var taken = Math.min(+c.textContent || 0, total), left = total - taken;
+  var set = function (id, v) { var e = document.getElementById(id); if (e) e.textContent = v; };
+  set('seatLeft', left); set('seatLeftM', left); set('seatTaken', taken);
+  var bar = document.querySelector('.seats-bar'); if (bar) bar.setAttribute('aria-valuenow', taken);
+  var fill = document.getElementById('seatFill');
+  if (fill) requestAnimationFrame(function () { setTimeout(function () { fill.style.width = (taken / total * 100) + '%'; }, 300); });
 })();

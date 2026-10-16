@@ -88,3 +88,11 @@
   }
   svg.innerHTML = '<g fill="none" stroke-width="1.4">' + paths + '</g>';
 })();
+
+// 대표 영상: 소리 켜기 버튼
+(function () {
+  var v = document.getElementById('ceoVideo'), b = document.getElementById('unmuteBtn');
+  if (!v || !b) return;
+  b.addEventListener('click', function () { v.muted = false; v.volume = 1; v.play(); b.hidden = true; });
+  v.addEventListener('volumechange', function () { b.hidden = !v.muted; });
+})();
