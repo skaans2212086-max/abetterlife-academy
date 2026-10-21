@@ -874,3 +874,42 @@ body.lecture { letter-spacing: -0.012em; }
 .sl-main { justify-content: center; padding-bottom: 70px; }
 .sl-main .sl-h { margin-top: 14px; }
 @media (max-width: 640px) { .sl-main { padding-bottom: 44px; } }
+
+/* AI 프롬프트 혜택 30분 타이머 (줄어드는 바) */
+.perk { margin-top: 12px; padding: 12px 14px; border: 1px solid #b9cdf3; background: #f3f7ff; border-radius: 8px; }
+.perk-top { display: flex; justify-content: space-between; align-items: center; }
+.perk-tag { background: var(--navy); color: #fff; font-size: 12px; font-weight: 800; padding: 3px 9px; border-radius: 20px; }
+.perk-time { font-family: "Montserrat", sans-serif; font-size: 22px; font-weight: 800; color: var(--navy); font-variant-numeric: tabular-nums; letter-spacing: 0; }
+.perk-bar { margin-top: 10px; height: 10px; border-radius: 6px; background: #dbe5f7; overflow: hidden; }
+.perk-bar i { display: block; height: 100%; width: 100%; border-radius: 6px; background: linear-gradient(90deg, #3162ac, #3b82f6); transition: width 1s linear; }
+.perk-note { margin: 8px 0 0; font-size: 12px; color: #5d6b88; }
+.perk.low { border-color: #f3c6cb; background: #fff6f7; }
+.perk.low .perk-time { color: var(--lc-red); animation: pulse 1.4s infinite; border-radius: 4px; }
+.perk.low .perk-bar { background: #f1d9dc; } .perk.low .perk-bar i { background: linear-gradient(90deg, #ff7a85, var(--lc-red)); }
+.perk.end { opacity: .7; }
+@media (prefers-reduced-motion: reduce) { .perk-bar i { transition: none; } .perk.low .perk-time { animation: none; } }
+/* 혜택 타이머 바: 처음부터 빨간색 */
+.perk-bar { background: #f1d9dc; }
+.perk-bar i { background: linear-gradient(90deg, #ff7a85, var(--lc-red)); }
+
+/* 페이지 최상단 혜택 타이머 띠 (30분 동안 줄어드는 빨간 바) */
+.perk-top-bar { position: relative; background: #0b1630; color: #fff; overflow: hidden; }
+.ptb-in { display: flex; align-items: center; justify-content: center; gap: 18px; height: 44px; font-size: 14px; }
+.ptb-msg b { color: #ffd25e; }
+.ptb-time { color: #c9d4ee; } .ptb-time b { font-family: "Montserrat", sans-serif; font-size: 17px; color: #ff6b77; font-variant-numeric: tabular-nums; margin-left: 4px; }
+.ptb-btn { background: var(--lc-red); color: #fff; font-size: 13px; font-weight: 700; padding: 6px 14px; border-radius: 20px; }
+.ptb-btn:hover { background: #ff4655; }
+.ptb-fill { position: absolute; left: 0; bottom: 0; height: 4px; width: 100%; background: linear-gradient(90deg, #ff7a85, var(--lc-red)); transition: width 1s linear; }
+.perk-top-bar.low .ptb-time b { animation: pulse 1.4s infinite; border-radius: 4px; }
+.perk-top-bar.end .ptb-msg, .perk-top-bar.end .ptb-btn { opacity: .5; }
+@media (max-width: 640px) {
+  .ptb-in { gap: 10px; height: 40px; font-size: 12px; }
+  .ptb-msg { display: none; }
+  .ptb-time b { font-size: 15px; }
+}
+@media (prefers-reduced-motion: reduce) { .ptb-fill { transition: none; } .perk-top-bar.low .ptb-time b { animation: none; } }
+.lc-tabs { top: 152px; } .lc-side { top: 174px; }
+@media (max-width: 1020px) { .lc-tabs { top: 152px; } }
+@media (max-width: 640px) { .lc-tabs { top: 148px; } }
+.ptb-btn:disabled { background: #4a5368; color: #c3c8d3; cursor: not-allowed; opacity: 1; }
+.perk-top-bar.end .ptb-btn:disabled { opacity: 1; }

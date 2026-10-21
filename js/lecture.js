@@ -97,3 +97,23 @@
   var fill = document.getElementById('seatFill');
   if (fill) requestAnimationFrame(function () { setTimeout(function () { fill.style.width = (taken / total * 100) + '%'; }, 300); });
 })();
+
+// AI 프롬프트 혜택 30분 타이머 (방문자별로 첫 방문 시점부터 30분, 새로고침해도 이어짐)
+(function () {
+  var box = document.getElementById('perk'); if (!box) return;
+  var KEY = 'abl_perk_start', LIMIT = (+box.dataset.minutes || 30) * 60 * 1000, start;
+  try { start = +localStorage.getItem(KEY); if (!start) { start = Date.now(); localStorage.setItem(KEY, start); } } catch (e) { start = Date.now(); }
+  var t = document.getElementById('perkTime'), tm = document.getElementById('perkTimeM'), fill = document.getElementById('perkFill'),
+      note = document.getElementById('perkNote'), label = document.getElementById('applyLabel'), bar = box.querySelector('.perk-bar');
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function tick() {
+    var left = LIMIT - ((Date.now() - start) % LIMIT), s = Math.ceil(left / 1000), txt = pad(Math.floor(s / 60)) + ':' + pad(s % 60);
+    t.textContent = txt; if (tm) tm.textContent = txt;
+    var tt = document.getElementById('perkTimeTop'), ft = document.getElementById('perkFillTop');
+    if (tt) tt.textContent = left <= 0 ? '종료' : txt; if (ft) ft.style.width = (left / LIMIT * 100) + '%';
+    var top = document.getElementById('perkTop'); if (top) { top.classList.toggle('low', left < 5 * 60 * 1000); top.classList.toggle('end', left <= 0); }
+    var pct = left / LIMIT * 100; fill.style.width = pct + '%'; bar.setAttribute('aria-valuenow', Math.round(pct));
+    box.classList.toggle('low', left < 5 * 60 * 1000);
+  }
+  var iv = setInterval(tick, 1000); tick();
+})();

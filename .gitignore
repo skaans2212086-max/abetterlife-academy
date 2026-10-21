@@ -12,3 +12,14 @@ desktop.ini
 .DS_Store
 .vscode/
 assets/proof-revenue.png
+
+# 아직 공개하지 않는 페이지 (교육자료 · 테스트 가이드)
+ebook.html
+ebook-view.html
+guide.html
+guide-doc.html
+css/ebook.css
+css/guide.css
+js/ebook.js
+js/guide.js
+js/gate.js

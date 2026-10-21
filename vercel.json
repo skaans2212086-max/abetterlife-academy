@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/", "destination": "/lecture.html", "permanent": false },
+    { "source": "/index.html", "destination": "/lecture.html", "permanent": false }
+  ]
+}

@@ -10,13 +10,22 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=20261016052858">
-<link rel="stylesheet" href="css/lecture.css?v=20261016110445">
+<link rel="stylesheet" href="css/style.css?v=20261021040322">
+<link rel="stylesheet" href="css/lecture.css?v=20261020215816">
+<script src="js/top.js"></script>
 </head>
 <body class="lecture">
 
 <!-- ================= HEADER ================= -->
 <header class="lh">
+  <div class="perk-top-bar" id="perkTop">
+    <div class="lc-wrap ptb-in">
+      <span class="ptb-msg">🎁 지금 신청하면 <b>AI 프롬프트 혜택</b> 제공</span>
+      <span class="ptb-time">마감까지 <b id="perkTimeTop">30:00</b></span>
+      <button type="button" class="ptb-btn js-apply">혜택 챙기기</button>
+    </div>
+    <i class="ptb-fill" id="perkFillTop"></i>
+  </div>
   <div class="lc-wrap">
     <div class="lh-top">
       <a href="index.html" class="logo">
@@ -490,11 +499,11 @@
         <div class="cd-timer" id="timer" aria-label="라이브까지 남은 시간">
           <div><b data-u="d">00</b><span>일</span></div><div><b data-u="h">00</b><span>시간</span></div><div><b data-u="m">00</b><span>분</span></div><div><b data-u="s">00</b><span>초</span></div>
         </div>
-        <button class="go js-apply" type="button" style="margin-top:16px"><svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5a4.5 4.5 0 0 0-4.5 4.5v2.6L2.2 11h11.6l-1.3-2.4V6A4.5 4.5 0 0 0 8 1.5Z" fill="#fff"/><path d="M6.3 12.5a1.8 1.8 0 0 0 3.4 0Z" fill="#fff"/></svg><span>무료 라이브 신청 (<span id="applyCount">17</span>/100)</span></button>
-        <div class="seats" data-total="100">
-          <div class="seats-top"><span class="badge-fcfs">선착순 100명</span><span class="left">남은 자리 <b id="seatLeft">83</b>석</span></div>
-          <div class="seats-bar" role="progressbar" aria-label="신청 현황" aria-valuemin="0" aria-valuemax="100" aria-valuenow="17"><i id="seatFill"></i></div>
-          <p class="seats-note"><span id="seatTaken">17</span>명 신청 · 마감되면 신청이 닫힙니다</p>
+        <button class="go js-apply" type="button" style="margin-top:16px"><svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5a4.5 4.5 0 0 0-4.5 4.5v2.6L2.2 11h11.6l-1.3-2.4V6A4.5 4.5 0 0 0 8 1.5Z" fill="#fff"/><path d="M6.3 12.5a1.8 1.8 0 0 0 3.4 0Z" fill="#fff"/></svg><span id="applyLabel">AI 프롬프트 혜택 챙기기</span></button>
+        <div class="perk" id="perk" data-minutes="30">
+          <div class="perk-top"><span class="perk-tag">혜택 마감까지</span><b class="perk-time" id="perkTime">30:00</b></div>
+          <div class="perk-bar" role="progressbar" aria-label="혜택 남은 시간" aria-valuemin="0" aria-valuemax="100"><i id="perkFill"></i></div>
+          <p class="perk-note" id="perkNote">지금 신청하시면 AI 프롬프트를 함께 드려요</p>
         </div>
         <p class="gifts">참석 시 <b>특별 선물 4종</b> 증정<br>· 의료광고법 안전 가이드 · 대시보드 프롬프트<br>· 2027 마케팅 로드맵 · 마케팅 전략 AI</p>
       </div>
@@ -512,14 +521,17 @@
       </a>
       <div class="links"><a href="#">개인정보처리방침</a><a href="#">이용약관</a><a href="#">환불정책</a></div>
     </div>
-    <p>상호명 : 어베러라이프 &nbsp;|&nbsp; 대표 : 홍길동 &nbsp;|&nbsp; 사업자등록번호 : 000-00-00000</p>
-    <p>주소 : 서울특별시 강남구 테헤란로 000, 0층 &nbsp;|&nbsp; 대표전화 : 02-000-0000 &nbsp;|&nbsp; 이메일 : hello@abetterlife.kr</p>
+    <p class="corp">주식회사 어베러라이프</p>
+    <p>상호 : 어베러라이프 &nbsp;|&nbsp; 대표이사 : 정준호 &nbsp;|&nbsp; 개인정보책임관리자 : 정준호</p>
+    <p>사업자번호 : 262-86-02901 &nbsp;|&nbsp; 통신판매신고번호 : 제 2025-서울서초-3824호</p>
+    <p>사업장주소 : 서울특별시 서초구 사평대로53길 94, 어베러빌딩 2층</p>
+    <p>대표전화 : <a href="tel:01026419218">010-2641-9218</a></p>
     <p class="copy">© 2026 A BETTER LIFE ACADEMY. All rights reserved.</p>
   </div>
 </footer>
 
 <!-- 모바일 하단 신청 바 -->
-<div class="mbar"><p class="t"><b>2027 병원 마케팅 무료 LIVE</b>11.2(월) 20:00 · <em class="m-left">남은 자리 <span id="seatLeftM">83</span>석</em></p><button type="button" class="js-apply">무료 신청하기</button></div>
+<div class="mbar"><p class="t"><b>2027 병원 마케팅 무료 LIVE</b>11.2(월) 20:00 · <em class="m-left">혜택 마감 <span id="perkTimeM">30:00</span></em></p><button type="button" class="js-apply">무료 신청하기</button></div>
 
 <!-- 신청 모달 -->
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
@@ -548,6 +560,6 @@
   <svg width="30" height="30" viewBox="0 0 30 30"><circle cx="15" cy="15" r="13" fill="#fff"/><path d="M11.3 11.5a3.8 3.8 0 1 1 5.3 3.5c-1 .5-1.6 1.2-1.6 2.3v.6" fill="none" stroke="#3162ac" stroke-width="2.6" stroke-linecap="round"/><circle cx="15" cy="21.6" r="1.6" fill="#3162ac"/></svg>
 </a>
 
-<script src="js/lecture.js?v=20261016104756"></script>
+<script src="js/lecture.js?v=20261020215945"></script>
 </body>
 </html>

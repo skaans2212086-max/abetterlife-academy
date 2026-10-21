@@ -451,3 +451,6 @@ button { font: inherit; border: 0; background: none; cursor: pointer; }
 .vplayer .unmute:hover { background: rgba(49,98,172,.9); transform: translateY(-2px); }
 .vplayer .unmute[hidden] { display: none; }
 @media (max-width: 768px) { .vplayer { margin-top: 30px; } .vplayer .unmute { left: 10px; top: 10px; font-size: 13px; padding: 8px 12px; } }
+.footer .corp { color: #d5d8de; font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+.footer a[href^="tel:"] { color: inherit; }
+.gnb .sub .menu-lock { font-size: 12px; margin-left: 4px; opacity: .8; }
