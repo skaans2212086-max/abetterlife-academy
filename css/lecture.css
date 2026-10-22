@@ -913,3 +913,7 @@ body.lecture { letter-spacing: -0.012em; }
 @media (max-width: 640px) { .lc-tabs { top: 148px; } }
 .ptb-btn:disabled { background: #4a5368; color: #c3c8d3; cursor: not-allowed; opacity: 1; }
 .perk-top-bar.end .ptb-btn:disabled { opacity: 1; }
+/* 신청 완료 → 카카오톡 방 입장 버튼 */
+.modal .kakao-go { display: block; margin-top: 18px; background: #fee500; color: #191919; font-size: 16px; font-weight: 800; padding: 14px; border-radius: 8px; text-align: center; }
+.modal .kakao-go:hover { background: #fada0a; }
+.modal.need-click .kakao-go { animation: pulse 1.4s infinite; box-shadow: 0 0 0 0 rgba(254,229,0,.7); }

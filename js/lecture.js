@@ -70,8 +70,18 @@
     if (!/^01\d{8,9}$/.test(phone)) { err.textContent = '휴대폰 번호를 정확히 입력해 주세요. (예: 010-1234-5678)'; return; }
     if (!document.getElementById('fAgree').checked) { err.textContent = '이용약관 및 개인정보 수집 · 이용에 동의해 주세요.'; return; }
     err.textContent = '';
-    // TODO: 실제 신청 접수(구글 시트, CRM 등) 연결 위치
+    // 1) 카카오톡 오픈채팅방을 새 창으로 (클릭 직후에 열어야 팝업 차단을 피함)
+    var KAKAO = 'https://open.kakao.com/o/gZ85spTi';
+    var win = null;
+    try { win = window.open(KAKAO, '_blank'); } catch (x) {}
     modal.classList.add('sent');
+    if (!win) modal.classList.add('need-click');   // 새 창이 막힌 경우: 노란 버튼을 눌러 입장
+    // 2) 구글 시트에 이름 · 연락처 저장 (Apps Script 웹 앱)
+    var SHEET_URL = 'https://script.google.com/macros/s/AKfycbziKo2OpXMiVpTmsmWIM7S8bQ3omAFxm4bW3taHWu4C84Es7YphOS9hcXttnTFx_Oy-ng/exec';
+    if (SHEET_URL) {
+      var body = new URLSearchParams({ name: name, phone: document.getElementById('fPhone').value.trim(), agree: 'Y', source: '무료 LIVE 신청 (강의 페이지)' });
+      try { fetch(SHEET_URL, { method: 'POST', mode: 'no-cors', body: body }); } catch (x) {}
+    }
     document.querySelectorAll('.sc2 .go').forEach(function (b) { b.classList.add('done'); b.lastChild.textContent = '신청 완료'; });
   });
 
