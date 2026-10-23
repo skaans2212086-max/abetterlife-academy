@@ -60,7 +60,10 @@
   function closeM() { modal.classList.remove('open'); }
   document.querySelectorAll('.js-apply').forEach(function (b) { b.addEventListener('click', openM); });
   document.getElementById('mClose').addEventListener('click', closeM);
-  modal.addEventListener('click', function (e) { if (e.target === modal) closeM(); });
+  // 바깥(어두운 배경)을 눌렀다 뗀 경우에만 닫기 — 상자 안에서 드래그하다 밖에서 떼면 닫히지 않음
+  var downOnBackdrop = false;
+  modal.addEventListener('mousedown', function (e) { downOnBackdrop = e.target === modal; });
+  modal.addEventListener('click', function (e) { if (e.target === modal && downOnBackdrop) closeM(); downOnBackdrop = false; });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeM(); });
   form.addEventListener('submit', function (e) {
     e.preventDefault();
