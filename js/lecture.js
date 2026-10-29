@@ -90,12 +90,27 @@
 
   // ---------- 찜 / 링크 복사 ----------
   document.getElementById('likeBtn').addEventListener('click', function () { this.classList.toggle('on'); });
-  document.getElementById('shareBtn').addEventListener('click', function () {
-    var btn = this;
-    if (navigator.clipboard) navigator.clipboard.writeText(location.href).then(function () {
-      btn.title = '링크가 복사되었습니다'; btn.style.background = '#e5eeff';
-      setTimeout(function () { btn.style.background = ''; }, 1200);
-    }).catch(function () {});
+  // 공유 버튼 → "링크 복사하기" 작은 메뉴
+  var shareBtn = document.getElementById('shareBtn');
+  var SHARE_URL = 'https://www.abetterlife-academy.com/';
+  var pop = document.createElement('div');
+  pop.className = 'share-pop'; pop.hidden = true;
+  pop.innerHTML = '<p class="sp-t">이 강의 공유하기</p><div class="sp-url"><input type="text" id="shareUrl" readonly aria-label="공유 링크"></div>' +
+    '<button type="button" class="sp-copy" id="shareCopy">🔗 링크 복사하기</button>';
+  shareBtn.parentNode.style.position = 'relative';
+  shareBtn.parentNode.appendChild(pop);
+  var urlBox = pop.querySelector('#shareUrl'), copyBtn = pop.querySelector('#shareCopy');
+  urlBox.value = /^https?:/.test(location.href) && location.hostname.indexOf('abetterlife') > -1 ? location.href.split('#')[0] : SHARE_URL;
+  shareBtn.addEventListener('click', function (e) { e.stopPropagation(); pop.hidden = !pop.hidden; copyBtn.textContent = '🔗 링크 복사하기'; copyBtn.classList.remove('done'); });
+  pop.addEventListener('click', function (e) { e.stopPropagation(); });
+  document.addEventListener('click', function () { pop.hidden = true; });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') pop.hidden = true; });
+  function copied() { copyBtn.textContent = '✓ 복사되었습니다'; copyBtn.classList.add('done'); setTimeout(function () { pop.hidden = true; }, 1200); }
+  copyBtn.addEventListener('click', function () {
+    var t = urlBox.value;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(t).then(copied).catch(function () { urlBox.select(); copyBtn.textContent = '주소를 선택했어요 · Ctrl+C로 복사'; });
+    } else { urlBox.select(); try { document.execCommand('copy'); copied(); } catch (x) {} }
   });
 })();
 

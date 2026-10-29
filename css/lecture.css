@@ -917,3 +917,12 @@ body.lecture { letter-spacing: -0.012em; }
 .modal .kakao-go { display: block; margin-top: 18px; background: #fee500; color: #191919; font-size: 16px; font-weight: 800; padding: 14px; border-radius: 8px; text-align: center; }
 .modal .kakao-go:hover { background: #fada0a; }
 .modal.need-click .kakao-go { animation: pulse 1.4s infinite; box-shadow: 0 0 0 0 rgba(254,229,0,.7); }
+/* 공유 → 링크 복사 메뉴 */
+.share-pop { position: absolute; right: 0; top: calc(100% + 10px); z-index: 60; width: 260px; background: #fff; border: 1px solid var(--lc-line); border-radius: 12px; box-shadow: 0 14px 34px rgba(20,40,90,.16); padding: 14px; text-align: left; }
+.share-pop::before { content: ""; position: absolute; right: 12px; top: -6px; width: 10px; height: 10px; background: #fff; border-left: 1px solid var(--lc-line); border-top: 1px solid var(--lc-line); transform: rotate(45deg); }
+.sp-t { margin: 0; font-size: 13px; font-weight: 800; color: #1b2233; }
+.sp-url input { width: 100%; margin-top: 8px; padding: 9px 10px; border: 1px solid #dde3ee; border-radius: 8px; background: #f6f8fc; font: inherit; font-size: 12px; color: #5d6474; }
+.sp-copy { width: 100%; margin-top: 8px; padding: 11px; border-radius: 8px; background: var(--point); color: #fff; font-size: 14px; font-weight: 800; }
+.sp-copy:hover { background: var(--navy); } .sp-copy.done { background: #16a34a; }
+.sc1 .share-pop .sp-copy { width: 100%; height: auto; border-radius: 8px; display: block; background: var(--point); color: #fff; font-size: 14px; }
+.sc1 .share-pop .sp-copy:hover { background: var(--navy); } .sc1 .share-pop .sp-copy.done { background: #16a34a; }
