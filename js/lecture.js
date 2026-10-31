@@ -5,7 +5,7 @@
       if (en.isIntersecting) { en.target.classList.add('on'); io.unobserve(en.target); }
     });
   }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal, #bars, .pencil, .dash.grow').forEach(function (el) { io.observe(el); });
+  document.querySelectorAll('.reveal, #bars, .pencil, .dash.grow, .cbars').forEach(function (el) { io.observe(el); });
 
   // ---------- 숫자 카운트 ----------
   var cio = new IntersectionObserver(function (entries) {

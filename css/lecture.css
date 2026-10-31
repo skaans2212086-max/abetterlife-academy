@@ -926,3 +926,27 @@ body.lecture { letter-spacing: -0.012em; }
 .sp-copy:hover { background: var(--navy); } .sp-copy.done { background: #16a34a; }
 .sc1 .share-pop .sp-copy { width: 100%; height: auto; border-radius: 8px; display: block; background: var(--point); color: #fff; font-size: 14px; }
 .sc1 .share-pop .sp-copy:hover { background: var(--navy); } .sc1 .share-pop .sp-copy.done { background: #16a34a; }
+
+/* 커리큘럼 01 · 채널별 객단가 막대 */
+.cbars { margin: 26px 10px 6px; display: grid; gap: 18px; }
+.cb { display: grid; grid-template-columns: 96px 1fr 92px; align-items: center; gap: 12px; }
+.cb .k { font-size: 16px; font-weight: 700; color: #4a5160; }
+.cb .t { height: 30px; background: #eef1f6; border-radius: 6px; overflow: hidden; }
+.cb .t i { display: block; height: 100%; width: 0; background: #9fb1d4; border-radius: 6px; transition: width 1.2s cubic-bezier(.2,.7,.2,1); }
+.cbars.on .cb .t i { width: var(--w); }
+.cb:nth-child(2) .t i { transition-delay: .15s; } .cb:nth-child(3) .t i { transition-delay: .3s; }
+.cb b { font-size: 18px; font-weight: 800; color: #4a5160; text-align: right; white-space: nowrap; }
+.cb.top .k, .cb.top b { color: var(--point); } .cb.top .t i { background: var(--point); }
+.stack .cd .src.reel i { width: 16px; height: 16px; border-radius: 5px; background: linear-gradient(45deg, #feda75, #d62976 55%, #4f5bd5); }
+.cur-note { margin: 22px auto 0; max-width: 600px; font-size: 17px; line-height: 1.6; color: var(--lc-sub); }
+.cur-note b { color: var(--lc-ink); }
+@media (max-width: 640px) {
+  .cbars { margin: 18px 0 4px; gap: 14px; }
+  .cb { grid-template-columns: 70px 1fr 70px; gap: 8px; }
+  .cb .k { font-size: 13px; } .cb b { font-size: 14px; } .cb .t { height: 22px; }
+  .cur-note { font-size: 14px; }
+}
+@media (prefers-reduced-motion: reduce) { .cb .t i { width: var(--w); transition: none; } }
+#cur1 .stack { min-height: 0; }
+.cur-note b { white-space: nowrap; }
+.stack .cd .fix em { white-space: nowrap; display: inline-block; }
