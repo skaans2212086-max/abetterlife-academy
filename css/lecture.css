@@ -965,3 +965,5 @@ body.lecture { letter-spacing: -0.012em; }
   .sc.article .stat { padding: 10px 12px; } .sc.article .stat span { font-size: 13px; } .sc.article .stat b { font-size: 24px; }
   .icard p.srcl { font-size: 11px; }
 }
+[hidden] { display: none !important; }
+.curl li { line-height: 1.5; } .curl li b { flex-shrink: 0; } .curl li span { white-space: nowrap; }

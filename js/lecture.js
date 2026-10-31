@@ -29,7 +29,7 @@
   if (track) track.innerHTML += track.innerHTML;
 
   // ---------- 탭 활성화 (스크롤 위치) ----------
-  var tabs = document.querySelectorAll('#tabs a');
+  var tabs = document.querySelectorAll('#tabs a:not([hidden])');
   var targets = Array.prototype.map.call(tabs, function (a) { return document.querySelector(a.getAttribute('href')); });
   function spy() {
     var y = window.scrollY + 200, idx = 0;
