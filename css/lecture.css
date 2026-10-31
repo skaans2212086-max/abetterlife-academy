@@ -950,3 +950,18 @@ body.lecture { letter-spacing: -0.012em; }
 #cur1 .stack { min-height: 0; }
 .cur-note b { white-space: nowrap; }
 .stack .cd .fix em { white-space: nowrap; display: inline-block; }
+
+/* 6-03 · 기사 캡처 + 조사 수치 */
+.icard .sc.article { height: auto; border: 1px solid #e6e8ee; background: #fff; }
+.sc.article .shot { position: relative; }
+.sc.article .shot img { display: block; width: 100%; height: auto; }
+.sc.article .pa-news { left: 48.6%; top: 90.6%; width: 18.2%; height: 5.4%; }
+.sc.article .stat { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 18px; background: #0f2a5c; color: #fff; }
+.sc.article .stat span { font-size: 16px; font-weight: 700; }
+.sc.article .stat b { font-family: "Montserrat", sans-serif; font-size: 34px; font-weight: 800; color: #7fb2ff; white-space: nowrap; }
+.sc.article .stat em { font-style: normal; }
+.icard p.srcl { margin-top: 8px; font-size: 12px; color: #9aa0ab; }
+@media (max-width: 640px) {
+  .sc.article .stat { padding: 10px 12px; } .sc.article .stat span { font-size: 13px; } .sc.article .stat b { font-size: 24px; }
+  .icard p.srcl { font-size: 11px; }
+}
