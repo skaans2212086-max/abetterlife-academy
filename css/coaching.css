@@ -1029,3 +1029,5 @@ body.lecture { letter-spacing: -0.012em; }
 .enter-dim { position: fixed; inset: 0; z-index: 299; pointer-events: none; opacity: 0; transition: opacity .4s; }
 .enter-dim.show { opacity: 1; }
 .enter-dim i { position: fixed; display: block; background: rgba(5, 10, 25, .62); }
+/* 강의 소개 카드를 배너 위로 */
+.sc1-top { margin-bottom: 18px; }
