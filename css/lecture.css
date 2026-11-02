@@ -990,3 +990,4 @@ body.lecture { letter-spacing: -0.012em; }
   .vflow div + div::before { content: "↓"; left: 50%; top: -19px; transform: translateX(-50%); }
   .vflow b { font-size: 16px; margin-top: 6px; } .vflow small { font-size: 12px; }
 }
+.lc-wrap > .lc-grid:first-child { margin-top: 28px; }
