@@ -145,3 +145,52 @@
   }
   var iv = setInterval(tick, 1000); tick();
 })();
+
+// 첫 화면 스포트라이트: 화면을 어둡게 하고 '입장하기' 버튼만 밝게 + 빨간 화살표
+(function () {
+  var btn = document.querySelector('.go-enter'); if (!btn) return;
+  var spot = document.createElement('div'); spot.className = 'enter-spot';
+  var dim = document.createElement('div'); dim.className = 'enter-dim'; dim.innerHTML = '<i></i><i></i><i></i><i></i>';
+  var p = dim.children;
+  var arrow = document.createElement('div'); arrow.className = 'enter-arrow';
+  arrow.innerHTML = '<svg viewBox="0 0 80 40" aria-hidden="true"><path d="M4 20h60" stroke="#ff2d3d" stroke-width="7" stroke-linecap="round"/><path d="M50 6l20 14-20 14" fill="none" stroke="#ff2d3d" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  var on = false;
+  function place() {
+    var r = btn.getBoundingClientRect(), pad = 8;
+    spot.style.left = (r.left - pad) + 'px'; spot.style.top = (r.top - pad) + 'px';
+    spot.style.width = (r.width + pad * 2) + 'px'; spot.style.height = (r.height + pad * 2) + 'px';
+    var L = r.left - pad, T = r.top - pad, R = r.right + pad, B = r.bottom + pad;   // 버튼 주변 4장으로 화면 어둡게
+    p[0].style.cssText = 'left:0;top:0;right:0;height:' + Math.max(0, T) + 'px';
+    p[1].style.cssText = 'left:0;top:' + B + 'px;right:0;bottom:0';
+    p[2].style.cssText = 'left:0;top:' + T + 'px;width:' + Math.max(0, L) + 'px;height:' + (B - T) + 'px';
+    p[3].style.cssText = 'left:' + R + 'px;top:' + T + 'px;right:0;height:' + (B - T) + 'px';
+    var down = window.innerWidth <= 640;   // 모바일: 버튼 위에서 아래로 가리킴
+    arrow.classList.toggle('down', down);
+    if (down) { arrow.style.left = (r.left + r.width / 2 - 30) + 'px'; arrow.style.top = (r.top - pad - 74) + 'px'; }
+    else { arrow.style.left = (r.left - pad - 96) + 'px'; arrow.style.top = (r.top + r.height / 2 - 30) + 'px'; }
+  }
+  function close() {
+    if (!on) return; on = false;
+    spot.classList.remove('show'); arrow.classList.remove('show'); dim.classList.remove('show');
+    setTimeout(function () { spot.remove(); arrow.remove(); dim.remove(); }, 400);
+    window.removeEventListener('resize', place); window.removeEventListener('scroll', place);
+  }
+  function open() {
+    document.body.appendChild(dim); document.body.appendChild(spot); document.body.appendChild(arrow);
+    var r = btn.getBoundingClientRect();
+    if (r.bottom > window.innerHeight - 20) window.scrollTo({ top: window.scrollY + r.top - window.innerHeight / 2 + r.height / 2, behavior: 'instant' });
+    place(); on = true;
+    requestAnimationFrame(function () { dim.classList.add('show'); spot.classList.add('show'); arrow.classList.add('show'); });
+    window.addEventListener('resize', place); window.addEventListener('scroll', place, { passive: true });
+  }
+  // 어두운 부분을 누르면 닫기 (버튼은 그대로 눌림)
+  document.addEventListener('click', function (e) {
+    if (!on) return;
+    if (btn.contains(e.target)) { close(); return; }
+    e.preventDefault(); e.stopPropagation(); close();
+  }, true);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  window.addEventListener('wheel', close, { passive: true });
+  window.addEventListener('touchmove', close, { passive: true });
+  window.addEventListener('load', function () { setTimeout(open, 500); });
+})();

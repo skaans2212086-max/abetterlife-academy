@@ -1013,3 +1013,19 @@ body.lecture { letter-spacing: -0.012em; }
 .lc-apply .sc2-r { display: flex; }
 .lc-apply .sc2-r .go-enter { flex: 1; }
 @media (max-width: 640px) { .lc-apply .sc2-r .go-enter { padding: 17px; } }
+/* 첫 화면 스포트라이트 */
+.enter-spot { position: fixed; z-index: 300; border-radius: 12px; pointer-events: none; opacity: 0; transition: opacity .4s; }
+.enter-spot.show { opacity: 1; }
+.enter-spot::after { content: ""; position: absolute; inset: 0; border-radius: 12px; border: 3px solid #fff; animation: spotPulse 1.6s ease-out infinite; }
+@keyframes spotPulse { 0% { box-shadow: 0 0 0 0 rgba(255,255,255,.7); } 100% { box-shadow: 0 0 0 16px rgba(255,255,255,0); } }
+.enter-arrow { position: fixed; z-index: 301; width: 80px; height: 60px; display: grid; place-items: center; pointer-events: none; opacity: 0; transition: opacity .4s; }
+.enter-arrow.show { opacity: 1; }
+.enter-arrow svg { width: 80px; height: 40px; filter: drop-shadow(0 2px 6px rgba(0,0,0,.4)); animation: arrowNudge .9s ease-in-out infinite; }
+.enter-arrow.down { width: 60px; height: 70px; }
+.enter-arrow.down svg { transform: rotate(90deg); animation-name: arrowNudgeDown; }
+@keyframes arrowNudge { 0%, 100% { transform: translateX(-8px); } 50% { transform: translateX(6px); } }
+@keyframes arrowNudgeDown { 0%, 100% { transform: rotate(90deg) translateX(-8px); } 50% { transform: rotate(90deg) translateX(6px); } }
+@media (prefers-reduced-motion: reduce) { .enter-arrow svg, .enter-spot::after { animation: none; } }
+.enter-dim { position: fixed; inset: 0; z-index: 299; pointer-events: none; opacity: 0; transition: opacity .4s; }
+.enter-dim.show { opacity: 1; }
+.enter-dim i { position: fixed; display: block; background: rgba(5, 10, 25, .62); }
