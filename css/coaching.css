@@ -991,3 +991,16 @@ body.lecture { letter-spacing: -0.012em; }
   .vflow b { font-size: 16px; margin-top: 6px; } .vflow small { font-size: 12px; }
 }
 .lc-wrap > .lc-grid:first-child { margin-top: 28px; }
+
+/* 1:1 맞춤 교육 · 신청 박스를 배너 아래로 (오른쪽 사이드 없음) */
+.lc-grid { grid-template-columns: minmax(0, 1fr); max-width: 860px; margin-left: auto; margin-right: auto; }
+.lc-apply { margin-top: 18px; display: flex; flex-direction: column; gap: 12px; }
+.lc-apply .sc2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 18px; align-items: start; }
+.lc-apply .sc2 .cd-timer { margin-top: 12px; }
+.lc-apply .sc2-r .go { margin-top: 0 !important; }
+.lc-apply .sc2-r .perk { margin-top: 12px; }
+.lc-apply .sc2 .gifts { grid-column: 1 / -1; margin-top: 0; padding-top: 12px; border-top: 1px solid var(--lc-line); }
+@media (max-width: 640px) {
+  .lc-apply .sc2 { grid-template-columns: 1fr; }
+  .lc-apply .sc1, .lc-apply .sc2 { padding: 18px 16px; }
+}

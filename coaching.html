@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css?v=20261021040322">
-<link rel="stylesheet" href="css/coaching.css?v=20261102160000">
+<link rel="stylesheet" href="css/coaching.css?v=20261102165243">
 <script src="js/top.js"></script>
 </head>
 <body class="lecture">
@@ -57,6 +57,43 @@
           <span class="yr">2027</span>
           <h1>병원 마케팅 생존전략<br><span class="hero-red">11/2(월) 무료 LIVE</span></h1>
         </div>
+      </div>
+
+      <!-- 신청 박스 (배너 아래) -->
+      <div class="lc-apply">
+      <div class="sc1">
+        <div class="top">
+          <div>
+            <span class="tag"><i></i>NEW LIVE</span>
+            <h2>2027 병원 마케팅 전략<br>무료 LIVE</h2>
+          </div>
+          <div class="ic">
+            <button type="button" id="likeBtn" aria-label="찜하기"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 12S1.5 8.6 1.5 5A2.8 2.8 0 0 1 7 3.6 2.8 2.8 0 0 1 12.5 5C12.5 8.6 7 12 7 12Z" fill="none" stroke="#888" stroke-width="1.3"/></svg></button>
+            <button type="button" id="shareBtn" aria-label="링크 복사"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="11" cy="3" r="1.8" fill="#888"/><circle cx="3" cy="7" r="1.8" fill="#888"/><circle cx="11" cy="11" r="1.8" fill="#888"/><path d="M4.5 6.2 9.5 3.8M4.5 7.8l5 2.4" stroke="#888" stroke-width="1.2"/></svg></button>
+          </div>
+        </div>
+        <p>AI 검색 이후 신환이 오는 길부터 숏폼 의료광고법까지. 11월 2일(월) 저녁 8시 딱 하루 공개합니다.</p>
+      </div>
+      <div class="sc2">
+        <div class="sc2-l">
+        <div class="date">
+          <b><svg width="14" height="14" viewBox="0 0 14 14"><rect x="1" y="2.5" width="12" height="10.5" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M1 6h12M4 1v3M10 1v3" stroke="currentColor" stroke-width="1.4"/></svg>2026.11.02 20:00 라이브 시작</b>
+          <small>곧 만나보실 수 있습니다!</small>
+        </div>
+        <div class="cd-timer" id="timer" aria-label="라이브까지 남은 시간">
+          <div><b data-u="d">00</b><span>일</span></div><div><b data-u="h">00</b><span>시간</span></div><div><b data-u="m">00</b><span>분</span></div><div><b data-u="s">00</b><span>초</span></div>
+        </div>
+        </div>
+        <div class="sc2-r">
+        <button class="go js-apply" type="button" style="margin-top:16px"><svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5a4.5 4.5 0 0 0-4.5 4.5v2.6L2.2 11h11.6l-1.3-2.4V6A4.5 4.5 0 0 0 8 1.5Z" fill="#fff"/><path d="M6.3 12.5a1.8 1.8 0 0 0 3.4 0Z" fill="#fff"/></svg><span id="applyLabel">AI 프롬프트 혜택 챙기기</span></button>
+        <div class="perk" id="perk" data-minutes="30">
+          <div class="perk-top"><span class="perk-tag">혜택 마감까지</span><b class="perk-time" id="perkTime">30:00</b></div>
+          <div class="perk-bar" role="progressbar" aria-label="혜택 남은 시간" aria-valuemin="0" aria-valuemax="100"><i id="perkFill"></i></div>
+          <p class="perk-note" id="perkNote">지금 신청하시면 AI 프롬프트를 함께 드려요</p>
+        </div>
+        </div>
+        <p class="gifts">참석 시 <b>특별 선물 4종</b> 증정<br>· 의료광고법 안전 가이드 · 내 병원 대시보드 2종<br>· 2027 마케팅 로드맵 · 내 병원 평가받기 봇</p>
+      </div>
       </div>
 
       <nav class="lc-tabs" id="tabs">
@@ -511,38 +548,6 @@
       <div class="banner reveal"><p>월 평균 조회수 <span>5,000만+</span><br>어베러라이프 아카데미</p></div>
     </div>
 
-    <!-- ============ RIGHT (sticky) ============ -->
-    <aside class="lc-side">
-      <div class="sc1">
-        <div class="top">
-          <div>
-            <span class="tag"><i></i>NEW LIVE</span>
-            <h2>2027 병원 마케팅 전략<br>무료 LIVE</h2>
-          </div>
-          <div class="ic">
-            <button type="button" id="likeBtn" aria-label="찜하기"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 12S1.5 8.6 1.5 5A2.8 2.8 0 0 1 7 3.6 2.8 2.8 0 0 1 12.5 5C12.5 8.6 7 12 7 12Z" fill="none" stroke="#888" stroke-width="1.3"/></svg></button>
-            <button type="button" id="shareBtn" aria-label="링크 복사"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="11" cy="3" r="1.8" fill="#888"/><circle cx="3" cy="7" r="1.8" fill="#888"/><circle cx="11" cy="11" r="1.8" fill="#888"/><path d="M4.5 6.2 9.5 3.8M4.5 7.8l5 2.4" stroke="#888" stroke-width="1.2"/></svg></button>
-          </div>
-        </div>
-        <p>AI 검색 이후 신환이 오는 길부터 숏폼 의료광고법까지. 11월 2일(월) 저녁 8시 딱 하루 공개합니다.</p>
-      </div>
-      <div class="sc2">
-        <div class="date">
-          <b><svg width="14" height="14" viewBox="0 0 14 14"><rect x="1" y="2.5" width="12" height="10.5" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M1 6h12M4 1v3M10 1v3" stroke="currentColor" stroke-width="1.4"/></svg>2026.11.02 20:00 라이브 시작</b>
-          <small>곧 만나보실 수 있습니다!</small>
-        </div>
-        <div class="cd-timer" id="timer" aria-label="라이브까지 남은 시간">
-          <div><b data-u="d">00</b><span>일</span></div><div><b data-u="h">00</b><span>시간</span></div><div><b data-u="m">00</b><span>분</span></div><div><b data-u="s">00</b><span>초</span></div>
-        </div>
-        <button class="go js-apply" type="button" style="margin-top:16px"><svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5a4.5 4.5 0 0 0-4.5 4.5v2.6L2.2 11h11.6l-1.3-2.4V6A4.5 4.5 0 0 0 8 1.5Z" fill="#fff"/><path d="M6.3 12.5a1.8 1.8 0 0 0 3.4 0Z" fill="#fff"/></svg><span id="applyLabel">AI 프롬프트 혜택 챙기기</span></button>
-        <div class="perk" id="perk" data-minutes="30">
-          <div class="perk-top"><span class="perk-tag">혜택 마감까지</span><b class="perk-time" id="perkTime">30:00</b></div>
-          <div class="perk-bar" role="progressbar" aria-label="혜택 남은 시간" aria-valuemin="0" aria-valuemax="100"><i id="perkFill"></i></div>
-          <p class="perk-note" id="perkNote">지금 신청하시면 AI 프롬프트를 함께 드려요</p>
-        </div>
-        <p class="gifts">참석 시 <b>특별 선물 4종</b> 증정<br>· 의료광고법 안전 가이드 · 내 병원 대시보드 2종<br>· 2027 마케팅 로드맵 · 내 병원 평가받기 봇</p>
-      </div>
-    </aside>
   </div>
 </main>
 
