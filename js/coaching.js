@@ -85,7 +85,7 @@
       var body = new URLSearchParams({ name: name, phone: document.getElementById('fPhone').value.trim(), agree: 'Y', source: '무료 LIVE 신청 (1:1 맞춤 교육 페이지)' });
       try { fetch(SHEET_URL, { method: 'POST', mode: 'no-cors', body: body }); } catch (x) {}
     }
-    document.querySelectorAll('.sc2 .go').forEach(function (b) { b.classList.add('done'); b.lastChild.textContent = '신청 완료'; });
+    document.querySelectorAll('.sc2 .go.js-apply').forEach(function (b) { b.classList.add('done'); b.lastChild.textContent = '신청 완료'; });
   });
 
   // ---------- 찜 / 링크 복사 ----------

@@ -1004,3 +1004,12 @@ body.lecture { letter-spacing: -0.012em; }
   .lc-apply .sc2 { grid-template-columns: 1fr; }
   .lc-apply .sc1, .lc-apply .sc2 { padding: 18px 16px; }
 }
+/* 1:1 맞춤 교육 · 혜택 타이머 없음 → 상단 띠 높이만큼 탭 위치 조정, 입장하기 버튼 */
+.lc-tabs { top: 108px; }
+@media (max-width: 1020px) { .lc-tabs { top: 108px; } }
+@media (max-width: 640px) { .lc-tabs { top: 108px; } }
+.sc2 .go.go-enter { font-size: 17px; text-decoration: none; }
+.lc-apply .sc2 { align-items: stretch; }
+.lc-apply .sc2-r { display: flex; }
+.lc-apply .sc2-r .go-enter { flex: 1; }
+@media (max-width: 640px) { .lc-apply .sc2-r .go-enter { padding: 17px; } }
