@@ -1031,3 +1031,15 @@ body.lecture { letter-spacing: -0.012em; }
 .enter-dim i { position: fixed; display: block; background: rgba(5, 10, 25, .62); }
 /* 강의 소개 카드를 배너 위로 */
 .sc1-top { margin-bottom: 18px; }
+/* 입장하기 버튼 — 네이비 그라데이션 + 화살표 원 */
+.sc2 .go.go-enter { justify-content: space-between; gap: 16px; padding: 0 22px 0 30px; min-height: 64px; border-radius: 12px;
+  background: linear-gradient(135deg, #1a3478 0%, #0e1d45 100%); color: #fff; font-size: 20px; font-weight: 800; letter-spacing: -0.02em;
+  box-shadow: 0 10px 24px rgba(14, 29, 69, .28), inset 0 1px 0 rgba(255,255,255,.14); transition: transform .25s, box-shadow .25s, background .25s; }
+.sc2 .go.go-enter::after { display: none; }
+.sc2 .go.go-enter::before { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background: radial-gradient(120% 90% at 100% 0%, rgba(90,150,255,.35), transparent 60%); }
+.sc2 .go.go-enter:hover { background: linear-gradient(135deg, #1f3f8f 0%, #10224f 100%); transform: translateY(-2px); box-shadow: 0 14px 30px rgba(14, 29, 69, .34), inset 0 1px 0 rgba(255,255,255,.18); }
+.go-enter .ge-t { position: relative; }
+.go-enter .ge-arr { position: relative; flex: 0 0 auto; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: #fff; color: #0e1d45; transition: transform .25s; }
+.go-enter:hover .ge-arr { transform: translateX(4px); }
+@media (max-width: 640px) { .sc2 .go.go-enter { min-height: 58px; padding: 0 12px 0 22px; font-size: 18px; } .go-enter .ge-arr { width: 36px; height: 36px; } }
